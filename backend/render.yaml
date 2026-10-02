@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: prompt3d-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    plan: free
+    envVars:
+      - key: HF_SPACE
+        value: hysts/Shap-E
+      - key: ALLOWED_ORIGINS
+        value: "*"
